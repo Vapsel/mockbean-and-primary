@@ -20,7 +20,7 @@ public class SomeControllerTest {
     // the following naive approach fails to load the application context
     // as @MockBean does not know which one to mock (does not check for @Primary trait)
 //    @MockBean
-//    private SomeService someService;
+//    private SomeService someServiceMock;
 
     // the following also fails to load the application context
     // as the mocked bean has lost its @Primary trait,
