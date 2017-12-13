@@ -3,6 +3,7 @@ package com.example.mockbeanandprimary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ class SomeController {
     SomeController(SomeService someService) {
         this.someService = someService;
     }
+
+	@Override public String toString() {
+		return someService.toString();
+	}
 }
 
 interface SomeService {
@@ -30,6 +35,7 @@ interface SomeService {
 
 @Service
 @Primary
+@RefreshScope
 class SomeServiceImpl implements SomeService {
 
 }

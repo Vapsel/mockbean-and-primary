@@ -42,6 +42,7 @@ public class SomeControllerTest {
         @Bean("someServiceImpl")
         @Primary
         public static SomeService someService() {
+            // This method doesn't call
             return Mockito.mock(SomeService.class);
         }
     }
@@ -49,8 +50,8 @@ public class SomeControllerTest {
     // just some stupid test
     @Test
     public void someTest() throws Exception {
-        sut.toString();
-        // may use someServiceMock here now with Mockito
+        Mockito.when(someServiceMock.toString()).thenReturn("works");
+        System.out.println(sut.toString());
     }
 
 
